@@ -22,13 +22,13 @@ NSString *const TGHeaderApiKeyName = @"trakt-api-key";
 NSInteger const TGLimit = 10;
 
 
-NSString *const TGMovieTitleField = @"title";
-NSString *const TGMovieYearField = @"year";
-NSString *const TGMovieOverviewField = @"overview";
-NSString *const TGMovieImageDictionaryField = @"images";
-NSString *const TGMovieLogoField = @"logo";
-NSString *const TGMovieImageDictionaryFullField = @"full";
-
-
+NSString *const TGMovieTitleKey = @"title";
+NSString *const TGMovieYearKey = @"year";
+NSString *const TGMovieOverviewKey = @"overview";
+NSString *const TGMovieImageDictionaryKey = @"images";
+NSString *const TGMovieLogoKey = @"logo";
+NSString *const TGMovieImageDictionaryFullKey = @"full";
+NSString *const TGMovieIdDictionaryIdsKey = @"ids";
+NSString *const TGMovieIdDictionaryIMDBKey = @"imdb";
 
 @end

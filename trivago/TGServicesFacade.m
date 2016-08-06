@@ -14,6 +14,7 @@
 @property (nonatomic, strong) TGNetworkManager *networkManager;
 @property (nonatomic, strong) TGDataSerializationManager *serializationManager;
 
+
 @end
 
 @implementation TGServicesFacade
@@ -46,6 +47,10 @@
     if (success) {
         success(moviesArray);
     }
+}
+
+- (void)fetchImageFromURLString:(NSString *)urlString onDidLoad:(void (^)(UIImage *image))onImageDidLoad {
+    [self.networkManager fetchImageFromURLString:urlString onDidLoad:onImageDidLoad];
 }
 
 @end

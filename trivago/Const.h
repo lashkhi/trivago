@@ -20,10 +20,13 @@ extern NSString *const TGHeaderApiVersionName;
 extern NSString *const TGHeaderApiKeyName;
 
 #pragma mark - TGMovie parsing keys
-extern NSString *const TGMovieTitleField;
-extern NSString *const TGMovieYearField;
-extern NSString *const TGMovieOverviewField;
-extern NSString *const TGMovieImageDictionaryField;
-extern NSString *const TGMovieLogoField;
-extern NSString *const TGMovieImageDictionaryFullField;
+extern NSString *const TGMovieTitleKey;
+extern NSString *const TGMovieYearKey;
+extern NSString *const TGMovieOverviewKey;
+extern NSString *const TGMovieImageDictionaryKey;
+extern NSString *const TGMovieLogoKey;
+extern NSString *const TGMovieImageDictionaryFullKey;
+extern NSString *const TGMovieIdDictionaryIdsKey;
+extern NSString *const TGMovieIdDictionaryIMDBKey;
+
 @end

@@ -16,10 +16,11 @@
     NSMutableArray *newMovies = [NSMutableArray new];
     for (NSDictionary *movieDict in jsonArray) {
         TGMovie *movie = [TGMovie new];
-        movie.title = movieDict[TGMovieTitleField];
-        movie.year =[NSString stringWithFormat:@"%@", movieDict[TGMovieYearField]];
-        movie.overview = movieDict[TGMovieOverviewField];
-        movie.imageURL = movieDict[TGMovieImageDictionaryField][TGMovieLogoField][TGMovieImageDictionaryFullField];
+        movie.title = movieDict[TGMovieTitleKey];
+        movie.year =[NSString stringWithFormat:@"%@", movieDict[TGMovieYearKey]];
+        movie.overview = movieDict[TGMovieOverviewKey];
+        movie.imageURL = movieDict[TGMovieImageDictionaryKey][TGMovieLogoKey][TGMovieImageDictionaryFullKey];
+        movie.movieId = movieDict[TGMovieIdDictionaryIdsKey][TGMovieIdDictionaryIMDBKey];
         [newMovies addObject:movie];
     }
     return newMovies;

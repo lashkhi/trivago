@@ -15,6 +15,8 @@
 @interface TGTableViewController ()
 @property (nonatomic, strong) TGServicesFacade *serviceManager;
 @property (nonatomic, strong) NSMutableArray *movies;
+@property (nonatomic, strong) NSCache *cache;
+
 @end
 
 @implementation TGTableViewController
@@ -25,6 +27,7 @@ static NSString * const reuseIdentifier = @"MovieTableViewCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.movies = [NSMutableArray new];
+    self.cache = [NSCache new];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         self.serviceManager = [TGServicesFacade new];
@@ -65,6 +68,23 @@ static NSString * const reuseIdentifier = @"MovieTableViewCell";
     cell.title.text = movie.title;
     cell.year.text = movie.year;
     cell.overview.text = movie.overview;
+    
+    NSString *keyString = [NSString stringWithFormat:@"movie-%@", movie.movieId];
+    if ([self.cache objectForKey:keyString]) {
+        cell.image.image = [self.cache objectForKey:keyString];
+    } else {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self.serviceManager fetchImageFromURLString:movie.imageURL onDidLoad:^(UIImage *image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    TGMovieTableViewCell *updateCell = [tableView cellForRowAtIndexPath:indexPath];
+                    if (updateCell && image) {
+                        updateCell.image.image = image;
+                        [self.cache setObject:image forKey:keyString];
+                    }
+                });
+            }];
+        });
+    }
     
     return cell;
 }

@@ -89,7 +89,7 @@
 				BB6CE3D61D548EB2009613CB /* Network + Serialization */,
 				BB6CE3E01D54D9CC009613CB /* Model */,
 				63DC92081D561C0E00DFEBE7 /* View */,
-				BB6CE3CB1D548D2A009613CB /* Model-View */,
+				BB6CE3CB1D548D2A009613CB /* View-Model */,
 				BB6CE3D71D549067009613CB /* Const.h */,
 				BB6CE3D81D549067009613CB /* Const.m */,
 				BB6CE3B41D548B29009613CB /* AppDelegate.h */,
@@ -111,13 +111,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BB6CE3CB1D548D2A009613CB /* Model-View */ = {
+		BB6CE3CB1D548D2A009613CB /* View-Model */ = {
 			isa = PBXGroup;
 			children = (
 				BB6CE3D01D548E1A009613CB /* TGTableViewController.h */,
 				BB6CE3D11D548E1A009613CB /* TGTableViewController.m */,
 			);
-			name = "Model-View";
+			name = "View-Model";
 			sourceTree = "<group>";
 		};
 		BB6CE3CF1D548D7C009613CB /* Facade */ = {

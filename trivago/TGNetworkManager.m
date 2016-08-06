@@ -43,5 +43,16 @@
     [self.dataTask resume];
 }
 
+- (void)fetchImageFromURLString:(NSString *)urlString onDidLoad:(void (^)(UIImage *image))onImageDidLoad {
+    NSURL *URL = [NSURL URLWithString:urlString];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDownloadTask *task = [session downloadTaskWithURL:URL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSData *imageData = [NSData dataWithContentsOfURL:location];
+        UIImage *image = [UIImage imageWithData:imageData];
+        onImageDidLoad(image);
+    }];
+    [task resume];
+}
+
 
 @end
