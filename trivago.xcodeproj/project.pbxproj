@@ -1,0 +1,371 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BB6CE3B31D548B29009613CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CE3B21D548B29009613CB /* main.m */; };
+		BB6CE3B61D548B29009613CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CE3B51D548B29009613CB /* AppDelegate.m */; };
+		BB6CE3BC1D548B29009613CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6CE3BA1D548B29009613CB /* Main.storyboard */; };
+		BB6CE3BE1D548B29009613CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB6CE3BD1D548B29009613CB /* Assets.xcassets */; };
+		BB6CE3C11D548B29009613CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6CE3BF1D548B29009613CB /* LaunchScreen.storyboard */; };
+		BB6CE3CE1D548D78009613CB /* TGServicesFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CE3CD1D548D78009613CB /* TGServicesFacade.m */; };
+		BB6CE3D21D548E1A009613CB /* TGTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CE3D11D548E1A009613CB /* TGTableViewController.m */; };
+		BB6CE3D51D548EAC009613CB /* TGNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CE3D41D548EAC009613CB /* TGNetworkManager.m */; };
+		BB6CE3D91D549067009613CB /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CE3D81D549067009613CB /* Const.m */; };
+		BB6CE3DC1D54D822009613CB /* TGDataSerializationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CE3DB1D54D822009613CB /* TGDataSerializationManager.m */; };
+		BB6CE3DF1D54D9C4009613CB /* TGMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CE3DE1D54D9C4009613CB /* TGMovie.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BB6CE3AE1D548B29009613CB /* trivago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trivago.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB6CE3B21D548B29009613CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BB6CE3B41D548B29009613CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BB6CE3B51D548B29009613CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BB6CE3BB1D548B29009613CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BB6CE3BD1D548B29009613CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB6CE3C01D548B29009613CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BB6CE3C21D548B29009613CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB6CE3CC1D548D78009613CB /* TGServicesFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGServicesFacade.h; sourceTree = "<group>"; };
+		BB6CE3CD1D548D78009613CB /* TGServicesFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGServicesFacade.m; sourceTree = "<group>"; };
+		BB6CE3D01D548E1A009613CB /* TGTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGTableViewController.h; sourceTree = "<group>"; };
+		BB6CE3D11D548E1A009613CB /* TGTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGTableViewController.m; sourceTree = "<group>"; };
+		BB6CE3D31D548EAC009613CB /* TGNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGNetworkManager.h; sourceTree = "<group>"; };
+		BB6CE3D41D548EAC009613CB /* TGNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGNetworkManager.m; sourceTree = "<group>"; };
+		BB6CE3D71D549067009613CB /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Const.h; sourceTree = "<group>"; };
+		BB6CE3D81D549067009613CB /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Const.m; sourceTree = "<group>"; };
+		BB6CE3DA1D54D822009613CB /* TGDataSerializationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGDataSerializationManager.h; sourceTree = "<group>"; };
+		BB6CE3DB1D54D822009613CB /* TGDataSerializationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGDataSerializationManager.m; sourceTree = "<group>"; };
+		BB6CE3DD1D54D9C4009613CB /* TGMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMovie.h; sourceTree = "<group>"; };
+		BB6CE3DE1D54D9C4009613CB /* TGMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMovie.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BB6CE3AB1D548B29009613CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB6CE3A51D548B29009613CB = {
+			isa = PBXGroup;
+			children = (
+				BB6CE3B01D548B29009613CB /* trivago */,
+				BB6CE3AF1D548B29009613CB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BB6CE3AF1D548B29009613CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB6CE3AE1D548B29009613CB /* trivago.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BB6CE3B01D548B29009613CB /* trivago */ = {
+			isa = PBXGroup;
+			children = (
+				BB6CE3CF1D548D7C009613CB /* Facade */,
+				BB6CE3D61D548EB2009613CB /* Network + Serialization */,
+				BB6CE3E01D54D9CC009613CB /* Model */,
+				BB6CE3CB1D548D2A009613CB /* View */,
+				BB6CE3D71D549067009613CB /* Const.h */,
+				BB6CE3D81D549067009613CB /* Const.m */,
+				BB6CE3B41D548B29009613CB /* AppDelegate.h */,
+				BB6CE3B51D548B29009613CB /* AppDelegate.m */,
+				BB6CE3BA1D548B29009613CB /* Main.storyboard */,
+				BB6CE3BD1D548B29009613CB /* Assets.xcassets */,
+				BB6CE3BF1D548B29009613CB /* LaunchScreen.storyboard */,
+				BB6CE3C21D548B29009613CB /* Info.plist */,
+				BB6CE3B11D548B29009613CB /* Supporting Files */,
+			);
+			path = trivago;
+			sourceTree = "<group>";
+		};
+		BB6CE3B11D548B29009613CB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BB6CE3B21D548B29009613CB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BB6CE3CB1D548D2A009613CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB6CE3D01D548E1A009613CB /* TGTableViewController.h */,
+				BB6CE3D11D548E1A009613CB /* TGTableViewController.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BB6CE3CF1D548D7C009613CB /* Facade */ = {
+			isa = PBXGroup;
+			children = (
+				BB6CE3CC1D548D78009613CB /* TGServicesFacade.h */,
+				BB6CE3CD1D548D78009613CB /* TGServicesFacade.m */,
+			);
+			name = Facade;
+			sourceTree = "<group>";
+		};
+		BB6CE3D61D548EB2009613CB /* Network + Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				BB6CE3D31D548EAC009613CB /* TGNetworkManager.h */,
+				BB6CE3D41D548EAC009613CB /* TGNetworkManager.m */,
+				BB6CE3DA1D54D822009613CB /* TGDataSerializationManager.h */,
+				BB6CE3DB1D54D822009613CB /* TGDataSerializationManager.m */,
+			);
+			name = "Network + Serialization";
+			sourceTree = "<group>";
+		};
+		BB6CE3E01D54D9CC009613CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB6CE3DD1D54D9C4009613CB /* TGMovie.h */,
+				BB6CE3DE1D54D9C4009613CB /* TGMovie.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB6CE3AD1D548B29009613CB /* trivago */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB6CE3C51D548B29009613CB /* Build configuration list for PBXNativeTarget "trivago" */;
+			buildPhases = (
+				BB6CE3AA1D548B29009613CB /* Sources */,
+				BB6CE3AB1D548B29009613CB /* Frameworks */,
+				BB6CE3AC1D548B29009613CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = trivago;
+			productName = trivago;
+			productReference = BB6CE3AE1D548B29009613CB /* trivago.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BB6CE3A61D548B29009613CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "David Lashkhi";
+				TargetAttributes = {
+					BB6CE3AD1D548B29009613CB = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = BB6CE3A91D548B29009613CB /* Build configuration list for PBXProject "trivago" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BB6CE3A51D548B29009613CB;
+			productRefGroup = BB6CE3AF1D548B29009613CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB6CE3AD1D548B29009613CB /* trivago */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB6CE3AC1D548B29009613CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB6CE3C11D548B29009613CB /* LaunchScreen.storyboard in Resources */,
+				BB6CE3BE1D548B29009613CB /* Assets.xcassets in Resources */,
+				BB6CE3BC1D548B29009613CB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB6CE3AA1D548B29009613CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB6CE3DC1D54D822009613CB /* TGDataSerializationManager.m in Sources */,
+				BB6CE3D21D548E1A009613CB /* TGTableViewController.m in Sources */,
+				BB6CE3CE1D548D78009613CB /* TGServicesFacade.m in Sources */,
+				BB6CE3D51D548EAC009613CB /* TGNetworkManager.m in Sources */,
+				BB6CE3D91D549067009613CB /* Const.m in Sources */,
+				BB6CE3B61D548B29009613CB /* AppDelegate.m in Sources */,
+				BB6CE3B31D548B29009613CB /* main.m in Sources */,
+				BB6CE3DF1D54D9C4009613CB /* TGMovie.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BB6CE3BA1D548B29009613CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB6CE3BB1D548B29009613CB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BB6CE3BF1D548B29009613CB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB6CE3C01D548B29009613CB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BB6CE3C31D548B29009613CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BB6CE3C41D548B29009613CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BB6CE3C61D548B29009613CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = trivago/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidlashkhi.trivago;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BB6CE3C71D548B29009613CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = trivago/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidlashkhi.trivago;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB6CE3A91D548B29009613CB /* Build configuration list for PBXProject "trivago" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB6CE3C31D548B29009613CB /* Debug */,
+				BB6CE3C41D548B29009613CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BB6CE3C51D548B29009613CB /* Build configuration list for PBXNativeTarget "trivago" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB6CE3C61D548B29009613CB /* Debug */,
+				BB6CE3C71D548B29009613CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BB6CE3A61D548B29009613CB /* Project object */;
+}
