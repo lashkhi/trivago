@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		638C48401D5662A5005D4C69 /* TGLoadingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 638C483F1D5662A5005D4C69 /* TGLoadingTableViewCell.m */; };
 		63DC92071D5619BD00DFEBE7 /* TGMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DC92061D5619BD00DFEBE7 /* TGMovieTableViewCell.m */; };
 		BB6CE3B31D548B29009613CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CE3B21D548B29009613CB /* main.m */; };
 		BB6CE3B61D548B29009613CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CE3B51D548B29009613CB /* AppDelegate.m */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		638C483E1D5662A5005D4C69 /* TGLoadingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGLoadingTableViewCell.h; sourceTree = "<group>"; };
+		638C483F1D5662A5005D4C69 /* TGLoadingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGLoadingTableViewCell.m; sourceTree = "<group>"; };
 		63DC92051D5619BD00DFEBE7 /* TGMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMovieTableViewCell.h; sourceTree = "<group>"; };
 		63DC92061D5619BD00DFEBE7 /* TGMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMovieTableViewCell.m; sourceTree = "<group>"; };
 		BB6CE3AE1D548B29009613CB /* trivago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trivago.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +65,8 @@
 			children = (
 				63DC92051D5619BD00DFEBE7 /* TGMovieTableViewCell.h */,
 				63DC92061D5619BD00DFEBE7 /* TGMovieTableViewCell.m */,
+				638C483E1D5662A5005D4C69 /* TGLoadingTableViewCell.h */,
+				638C483F1D5662A5005D4C69 /* TGLoadingTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB6CE3DC1D54D822009613CB /* TGDataSerializationManager.m in Sources */,
+				638C48401D5662A5005D4C69 /* TGLoadingTableViewCell.m in Sources */,
 				BB6CE3D21D548E1A009613CB /* TGTableViewController.m in Sources */,
 				BB6CE3CE1D548D78009613CB /* TGServicesFacade.m in Sources */,
 				63DC92071D5619BD00DFEBE7 /* TGMovieTableViewCell.m in Sources */,

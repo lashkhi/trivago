@@ -22,7 +22,7 @@
                           limit:(NSInteger)limit
                     withSuccess:(void (^)(NSArray * jsonArray))success
                         failure:(void (^)(NSError *error))failure {
-    NSURL *url = [NSURL URLWithString:[urlString stringByAppendingString:TGMoviesURL]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@&page=%ld&limit=%ld", urlString, TGMoviesURL, page, limit]];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     config.HTTPAdditionalHeaders = @{TGHeaderApiVersionName:@(TGApiClientVersion),
                                      TGHeaderApiKeyName:TGClientId};
