@@ -13,6 +13,6 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *year;
 @property (nonatomic, strong) NSString *overview;
-
+@property (nonatomic, strong) NSString *imageURL;
 
 @end

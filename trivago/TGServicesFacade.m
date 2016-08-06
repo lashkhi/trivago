@@ -8,9 +8,11 @@
 
 #import "TGServicesFacade.h"
 #import "TGNetworkManager.h"
+#import "TGDataSerializationManager.h"
 
 @interface TGServicesFacade ()
 @property (nonatomic, strong) TGNetworkManager *networkManager;
+@property (nonatomic, strong) TGDataSerializationManager *serializationManager;
 
 @end
 
@@ -19,6 +21,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         _networkManager = [TGNetworkManager new];
+        _serializationManager = [TGDataSerializationManager new];
     }
     return self;
 }
@@ -39,7 +42,10 @@
 }
 
 - (void)serializeMoviesFromJSONDictionary:(NSArray *)jsonArray withSuccess:(void (^)(NSArray *movies))success {
-    
+    NSArray *moviesArray = [self.serializationManager createMoviesFromJSONDictionary:jsonArray];
+    if (success) {
+        success(moviesArray);
+    }
 }
 
 @end

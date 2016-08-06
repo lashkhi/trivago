@@ -22,4 +22,13 @@ NSString *const TGHeaderApiKeyName = @"trakt-api-key";
 NSInteger const TGLimit = 10;
 
 
+NSString *const TGMovieTitleField = @"title";
+NSString *const TGMovieYearField = @"year";
+NSString *const TGMovieOverviewField = @"overview";
+NSString *const TGMovieImageDictionaryField = @"images";
+NSString *const TGMovieLogoField = @"logo";
+NSString *const TGMovieImageDictionaryFullField = @"full";
+
+
+
 @end

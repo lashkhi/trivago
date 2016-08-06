@@ -19,5 +19,11 @@ extern NSInteger const TGApiClientVersion;
 extern NSString *const TGHeaderApiVersionName;
 extern NSString *const TGHeaderApiKeyName;
 
-
+#pragma mark - TGMovie parsing keys
+extern NSString *const TGMovieTitleField;
+extern NSString *const TGMovieYearField;
+extern NSString *const TGMovieOverviewField;
+extern NSString *const TGMovieImageDictionaryField;
+extern NSString *const TGMovieLogoField;
+extern NSString *const TGMovieImageDictionaryFullField;
 @end

@@ -8,13 +8,19 @@
 
 #import "TGDataSerializationManager.h"
 #import "TGMovie.h"
+#import "Const.h"
 
 @implementation TGDataSerializationManager
 
 - (NSArray *)createMoviesFromJSONDictionary:(NSArray *)jsonArray {
     NSMutableArray *newMovies = [NSMutableArray new];
-    for (NSDictionary *movie in jsonArray) {
-        //
+    for (NSDictionary *movieDict in jsonArray) {
+        TGMovie *movie = [TGMovie new];
+        movie.title = movieDict[TGMovieTitleField];
+        movie.year =[NSString stringWithFormat:@"%@", movieDict[TGMovieYearField]];
+        movie.overview = movieDict[TGMovieOverviewField];
+        movie.imageURL = movieDict[TGMovieImageDictionaryField][TGMovieLogoField][TGMovieImageDictionaryFullField];
+        [newMovies addObject:movie];
     }
     return newMovies;
 }

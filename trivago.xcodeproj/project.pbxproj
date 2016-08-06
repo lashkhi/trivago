@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63DC92071D5619BD00DFEBE7 /* TGMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DC92061D5619BD00DFEBE7 /* TGMovieTableViewCell.m */; };
 		BB6CE3B31D548B29009613CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CE3B21D548B29009613CB /* main.m */; };
 		BB6CE3B61D548B29009613CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6CE3B51D548B29009613CB /* AppDelegate.m */; };
 		BB6CE3BC1D548B29009613CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB6CE3BA1D548B29009613CB /* Main.storyboard */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63DC92051D5619BD00DFEBE7 /* TGMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGMovieTableViewCell.h; sourceTree = "<group>"; };
+		63DC92061D5619BD00DFEBE7 /* TGMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGMovieTableViewCell.m; sourceTree = "<group>"; };
 		BB6CE3AE1D548B29009613CB /* trivago.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trivago.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6CE3B21D548B29009613CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BB6CE3B41D548B29009613CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -54,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63DC92081D561C0E00DFEBE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63DC92051D5619BD00DFEBE7 /* TGMovieTableViewCell.h */,
+				63DC92061D5619BD00DFEBE7 /* TGMovieTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		BB6CE3A51D548B29009613CB = {
 			isa = PBXGroup;
 			children = (
@@ -76,7 +88,8 @@
 				BB6CE3CF1D548D7C009613CB /* Facade */,
 				BB6CE3D61D548EB2009613CB /* Network + Serialization */,
 				BB6CE3E01D54D9CC009613CB /* Model */,
-				BB6CE3CB1D548D2A009613CB /* View */,
+				63DC92081D561C0E00DFEBE7 /* View */,
+				BB6CE3CB1D548D2A009613CB /* Model-View */,
 				BB6CE3D71D549067009613CB /* Const.h */,
 				BB6CE3D81D549067009613CB /* Const.m */,
 				BB6CE3B41D548B29009613CB /* AppDelegate.h */,
@@ -98,13 +111,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BB6CE3CB1D548D2A009613CB /* View */ = {
+		BB6CE3CB1D548D2A009613CB /* Model-View */ = {
 			isa = PBXGroup;
 			children = (
 				BB6CE3D01D548E1A009613CB /* TGTableViewController.h */,
 				BB6CE3D11D548E1A009613CB /* TGTableViewController.m */,
 			);
-			name = View;
+			name = "Model-View";
 			sourceTree = "<group>";
 		};
 		BB6CE3CF1D548D7C009613CB /* Facade */ = {
@@ -209,6 +222,7 @@
 				BB6CE3DC1D54D822009613CB /* TGDataSerializationManager.m in Sources */,
 				BB6CE3D21D548E1A009613CB /* TGTableViewController.m in Sources */,
 				BB6CE3CE1D548D78009613CB /* TGServicesFacade.m in Sources */,
+				63DC92071D5619BD00DFEBE7 /* TGMovieTableViewCell.m in Sources */,
 				BB6CE3D51D548EAC009613CB /* TGNetworkManager.m in Sources */,
 				BB6CE3D91D549067009613CB /* Const.m in Sources */,
 				BB6CE3B61D548B29009613CB /* AppDelegate.m in Sources */,
@@ -364,6 +378,7 @@
 				BB6CE3C71D548B29009613CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
