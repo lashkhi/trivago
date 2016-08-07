@@ -12,7 +12,7 @@
 
 @interface TGNetworkManager : NSObject
 
-- (void)fetchMoviesForURLString:(NSString *)urlString page:(NSInteger)page limit:(NSInteger)limit withSuccess:(void (^)(NSArray * jsonArray))success failure:(void (^)(NSError *error))failure;
+- (void)fetchMoviesForURLString:(NSString *)urlString withSuccess:(void (^)(NSArray * jsonArray))success failure:(void (^)(NSError *error))failure;
 
 - (void)fetchImageFromURLString:(NSString *)urlString onDidLoad:(void (^)(UIImage *image))onImageDidLoad;
 

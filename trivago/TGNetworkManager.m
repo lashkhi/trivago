@@ -18,11 +18,9 @@
 
 
 - (void)fetchMoviesForURLString:(NSString *)urlString
-                           page:(NSInteger)page
-                          limit:(NSInteger)limit
                     withSuccess:(void (^)(NSArray * jsonArray))success
                         failure:(void (^)(NSError *error))failure {
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@&page=%ld&limit=%ld", urlString, TGMoviesURL, page, limit]];
+    NSURL *url = [NSURL URLWithString:urlString];
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     config.HTTPAdditionalHeaders = @{TGHeaderApiVersionName:@(TGApiClientVersion),
                                      TGHeaderApiKeyName:TGClientId};

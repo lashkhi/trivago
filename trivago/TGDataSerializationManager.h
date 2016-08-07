@@ -10,6 +10,7 @@
 
 @interface TGDataSerializationManager : NSObject
 
-- (NSArray *)createMoviesFromJSONDictionary:(NSArray *)jsonArray;
+- (NSArray *)createMoviesFromJSON:(NSArray *)jsonArray;
+- (NSArray *)createSearchMoviesResultsFromJSON:(NSArray *)jsonArray;
 
 @end

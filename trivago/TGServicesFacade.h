@@ -12,7 +12,11 @@
 
 @interface TGServicesFacade : NSObject
 
-- (void)fetchMoviesForPage:(NSInteger)page limit:(NSInteger)limit success:(void (^)(NSArray * movies))success failure:(void (^)(NSError *error))failure;
+- (void)fetchMoviesForPage:(NSInteger)page
+                     limit:(NSInteger)limit
+                searchText:(NSString *)searchText
+                   success:(void (^)(NSArray * movies))success
+                   failure:(void (^)(NSError *error))failure;
 
 - (void)fetchImageFromURLString:(NSString *)urlString onDidLoad:(void (^)(UIImage *image))onImageDidLoad;
 

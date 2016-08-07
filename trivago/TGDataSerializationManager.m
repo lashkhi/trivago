@@ -12,18 +12,33 @@
 
 @implementation TGDataSerializationManager
 
-- (NSArray *)createMoviesFromJSONDictionary:(NSArray *)jsonArray {
+- (NSArray *)createMoviesFromJSON:(NSArray *)jsonArray {
     NSMutableArray *newMovies = [NSMutableArray new];
     for (NSDictionary *movieDict in jsonArray) {
-        TGMovie *movie = [TGMovie new];
-        movie.title = movieDict[TGMovieTitleKey];
-        movie.year =[NSString stringWithFormat:@"%@", movieDict[TGMovieYearKey]];
-        movie.overview = movieDict[TGMovieOverviewKey];
-        movie.imageURL = movieDict[TGMovieImageDictionaryKey][TGMovieLogoKey][TGMovieImageDictionaryFullKey];
-        movie.movieId = movieDict[TGMovieIdDictionaryIdsKey][TGMovieIdDictionaryIMDBKey];
+        TGMovie *movie = [self createMovieModelFromDictionary:movieDict];
         [newMovies addObject:movie];
     }
     return newMovies;
+}
+
+- (NSArray *)createSearchMoviesResultsFromJSON:(NSArray *)jsonArray {
+    NSMutableArray *newMovies = [NSMutableArray new];
+    for (NSDictionary *movieDict in jsonArray) {
+        NSDictionary *resultMovie = movieDict[TGMovieDictionaryMovieKey];
+        TGMovie *movie = [self createMovieModelFromDictionary:resultMovie];
+        [newMovies addObject:movie];
+    }
+    return newMovies;
+}
+
+- (TGMovie *)createMovieModelFromDictionary:(NSDictionary *)movieDict {
+    TGMovie *movie = [TGMovie new];
+    movie.title = movieDict[TGMovieTitleKey];
+    movie.year =[NSString stringWithFormat:@"%@", movieDict[TGMovieYearKey]];
+    movie.overview = movieDict[TGMovieOverviewKey];
+    movie.imageURL = movieDict[TGMovieImageDictionaryKey][TGMovieLogoKey][TGMovieImageDictionaryFullKey];
+    movie.movieId = movieDict[TGMovieIdDictionaryIdsKey][TGMovieIdDictionaryIMDBKey];
+    return movie;
 }
 
 @end

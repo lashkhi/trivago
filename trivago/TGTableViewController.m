@@ -16,9 +16,12 @@
 @interface TGTableViewController ()
 @property (nonatomic, strong) TGServicesFacade *serviceManager;
 @property (nonatomic, strong) NSMutableArray *movies;
+@property (nonatomic, strong) NSArray *searchResultsMovies;
 @property (nonatomic, strong) NSCache *cache;
 @property (nonatomic, assign) NSInteger currentPage;
-
+@property (nonatomic, assign) NSInteger searchCurrentPage;
+@property (nonatomic, strong) NSString *searchQuerry;
+@property (nonatomic, assign) BOOL searching;
 @end
 
 @implementation TGTableViewController
@@ -33,7 +36,8 @@ static NSString * const loadingCellReuseIdentifier = @"LoadingCell";
     self.cache = [NSCache new];
     self.serviceManager = [TGServicesFacade new];
     self.currentPage = 1;
-    [self loadMoviesForPage:self.currentPage withLimit:10];
+    self.searchCurrentPage = 1;
+    [self loadMoviesForPage:self.currentPage withLimit:TGLimit searchText:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,10 +45,14 @@ static NSString * const loadingCellReuseIdentifier = @"LoadingCell";
     // Dispose of any resources that can be recreated.
 }
 
-- (void)loadMoviesForPage:(NSInteger)page withLimit:(NSInteger)limit {
+- (void)loadMoviesForPage:(NSInteger)page withLimit:(NSInteger)limit searchText:(NSString *)searchText {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self.serviceManager fetchMoviesForPage:self.currentPage limit:TGLimit success:^(NSArray *moviesNew) {
-            [self.movies addObjectsFromArray:moviesNew];
+        [self.serviceManager fetchMoviesForPage:page limit:limit searchText:searchText success:^(NSArray *moviesNew) {
+            if (self.searching) {
+                self.searchResultsMovies = moviesNew;
+            } else {
+                [self.movies addObjectsFromArray:moviesNew];
+            }
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
             });
@@ -61,13 +69,26 @@ static NSString * const loadingCellReuseIdentifier = @"LoadingCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.movies.count + 1;
+    NSInteger rows = 0;
+    if (self.searching) {
+        rows = self.searchResultsMovies.count + 1;
+    } else {
+        rows = self.movies.count + 1;
+    }
+    return rows;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == [self.movies count] - 1 ) {
-        [self loadMoviesForPage:++self.currentPage withLimit:TGLimit];
+    if (self.searching) {
+        if (indexPath.row == [self.searchResultsMovies count] - 1 ) {
+            [self loadMoviesForPage:++self.searchCurrentPage withLimit:TGLimit searchText:self.searchQuerry];
+        }
+    } else {
+        if (indexPath.row == [self.movies count] - 1 ) {
+            [self loadMoviesForPage:++self.currentPage withLimit:TGLimit searchText:nil];
+        }
     }
+    
 }
 
 
@@ -78,7 +99,13 @@ static NSString * const loadingCellReuseIdentifier = @"LoadingCell";
         return cell;
     } else {
         TGMovieTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:movieCellReuseIdentifier forIndexPath:indexPath];
-        TGMovie *movie = self.movies[indexPath.row];
+        TGMovie *movie;
+        if (self.searching) {
+            movie = self.searchResultsMovies[indexPath.row];
+        } else {
+            movie = self.movies[indexPath.row];
+        }
+        
         cell.title.text = movie.title;
         cell.year.text = movie.year;
         cell.overview.text = movie.overview;
@@ -100,10 +127,27 @@ static NSString * const loadingCellReuseIdentifier = @"LoadingCell";
             });
         }
         return cell;
-
     }
-    
 }
 
+#pragma mark - SearchBar delegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchText.length >0) {
+        self.searching = YES;
+        self.searchQuerry = searchText;
+        [self loadMoviesForPage:self.searchCurrentPage withLimit:TGLimit searchText:self.searchQuerry];
+    }
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    self.searching = YES;
+    self.searchQuerry = searchBar.text;
+    [self loadMoviesForPage:self.searchCurrentPage withLimit:TGLimit searchText:self.searchQuerry];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    self.searching = NO;
+}
 
 @end

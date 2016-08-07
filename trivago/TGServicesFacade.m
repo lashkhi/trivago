@@ -29,10 +29,18 @@
 
 - (void)fetchMoviesForPage:(NSInteger)page
                      limit:(NSInteger)limit
+                searchText:(NSString *)searchText
                    success:(void (^)(NSArray * movies))success
                    failure:(void (^)(NSError *error))failure {
-    [self.networkManager fetchMoviesForURLString:TGAPIURL page:page limit:limit withSuccess:^(NSArray *jsonArray) {
-        [self serializeMoviesFromJSONDictionary:jsonArray withSuccess:^(NSArray *movies) {
+    NSString *urlString;
+    BOOL isSearch = searchText ? YES : NO;
+    if (searchText) {
+        urlString = [NSString stringWithFormat:@"%@%@%@&page=%ld&limit=%ld", TGAPIURL, TGSearchMoviesURL, searchText, page, limit];
+    } else {
+        urlString = [NSString stringWithFormat:@"%@%@&page=%ld&limit=%ld", TGAPIURL, TGMoviesURL, page, limit];
+    }
+    [self.networkManager fetchMoviesForURLString:urlString withSuccess:^(NSArray *jsonArray) {
+        [self serializeMoviesFromJSONDictionary:jsonArray isSearch:isSearch withSuccess:^(NSArray *movies) {
             if (success) {
                 success(movies);
             }
@@ -40,10 +48,16 @@
     } failure:^(NSError *error) {
         //
     }];
+
 }
 
-- (void)serializeMoviesFromJSONDictionary:(NSArray *)jsonArray withSuccess:(void (^)(NSArray *movies))success {
-    NSArray *moviesArray = [self.serializationManager createMoviesFromJSONDictionary:jsonArray];
+- (void)serializeMoviesFromJSONDictionary:(NSArray *)jsonArray isSearch:(BOOL)isSearch withSuccess:(void (^)(NSArray *movies))success {
+    NSArray *moviesArray;
+    if (isSearch) {
+        moviesArray = [self.serializationManager createSearchMoviesResultsFromJSON:jsonArray];
+    } else {
+        moviesArray = [self.serializationManager createMoviesFromJSON:jsonArray];
+    }
     if (success) {
         success(moviesArray);
     }

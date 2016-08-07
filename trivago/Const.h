@@ -12,6 +12,7 @@
 
 extern NSString *const TGAPIURL;
 extern NSString *const TGMoviesURL;
+extern NSString *const TGSearchMoviesURL;
 extern NSString *const TGClientId;
 extern NSInteger const TGLimit;
 extern NSInteger const TGApiClientVersion;
@@ -28,5 +29,6 @@ extern NSString *const TGMovieLogoKey;
 extern NSString *const TGMovieImageDictionaryFullKey;
 extern NSString *const TGMovieIdDictionaryIdsKey;
 extern NSString *const TGMovieIdDictionaryIMDBKey;
+extern NSString *const TGMovieDictionaryMovieKey;
 
 @end
