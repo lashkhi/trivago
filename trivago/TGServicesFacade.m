@@ -34,7 +34,7 @@
                    failure:(void (^)(NSError *error))failure {
     NSString *urlString;
     if (searchText) {
-        urlString = [NSString stringWithFormat:@"%@%@%@&page=%ld&limit=%ld", TGAPIURL, TGSearchMoviesURL, searchText, page, limit];
+        urlString = [NSString stringWithFormat:@"%@%@%@&page=%ld&limit=%ld", TGAPIURL, TGSearchMoviesURL, searchText, (long)page, limit];
         [self.networkManager cancelLoadingWithCompletion:^{
             [self sendRequestForURL:urlString forPage:page limit:limit searchText:searchText success:^(NSArray *movies) {
                 if (success) {
@@ -45,7 +45,7 @@
             }];
         }];
     } else {
-        urlString = [NSString stringWithFormat:@"%@%@&page=%ld&limit=%ld", TGAPIURL, TGMoviesURL, page, limit];
+        urlString = [NSString stringWithFormat:@"%@%@&page=%ld&limit=%ld", TGAPIURL, TGMoviesURL, (long)page, limit];
         [self sendRequestForURL:urlString forPage:page limit:limit searchText:searchText success:^(NSArray *movies) {
             if (success) {
                 success(movies);
