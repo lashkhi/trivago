@@ -33,22 +33,41 @@
                    success:(void (^)(NSArray * movies))success
                    failure:(void (^)(NSError *error))failure {
     NSString *urlString;
-    BOOL isSearch = searchText ? YES : NO;
     if (searchText) {
         urlString = [NSString stringWithFormat:@"%@%@%@&page=%ld&limit=%ld", TGAPIURL, TGSearchMoviesURL, searchText, page, limit];
+        [self.networkManager cancelLoadingWithCompletion:^{
+            [self sendRequestForURL:urlString forPage:page limit:limit searchText:searchText success:^(NSArray *movies) {
+                if (success) {
+                    success(movies);
+                }
+            } failure:^(NSError *error) {
+                //
+            }];
+        }];
     } else {
         urlString = [NSString stringWithFormat:@"%@%@&page=%ld&limit=%ld", TGAPIURL, TGMoviesURL, page, limit];
-    }
-    [self.networkManager fetchMoviesForURLString:urlString withSuccess:^(NSArray *jsonArray) {
-        [self serializeMoviesFromJSONDictionary:jsonArray isSearch:isSearch withSuccess:^(NSArray *movies) {
+        [self sendRequestForURL:urlString forPage:page limit:limit searchText:searchText success:^(NSArray *movies) {
             if (success) {
                 success(movies);
             }
+        } failure:^(NSError *error) {
+            //
         }];
-    } failure:^(NSError *error) {
-        //
-    }];
+    }
+    
 
+}
+
+- (void)sendRequestForURL:(NSString *)urlString
+                  forPage:(NSInteger)page
+                    limit:(NSInteger)limit
+               searchText:(NSString *)searchText
+                  success:(void (^)(NSArray * movies))success
+                  failure:(void (^)(NSError *error))failure {
+    BOOL isSearch = searchText ? YES : NO;
+    [self.networkManager fetchMoviesForURLString:urlString withSuccess:^(NSArray *jsonArray) {
+        [self serializeMoviesFromJSONDictionary:jsonArray isSearch:isSearch withSuccess:success];
+    } failure:failure];
 }
 
 - (void)serializeMoviesFromJSONDictionary:(NSArray *)jsonArray isSearch:(BOOL)isSearch withSuccess:(void (^)(NSArray *movies))success {
