@@ -12,20 +12,28 @@
 
 @interface TGNetworkManager ()
 @property (nonatomic, strong) NSURLSessionDataTask *dataTask;
+@property (nonatomic, strong) NSURLSession *session;
 @end
 
 @implementation TGNetworkManager
+
+- (instancetype)init {
+    if (self = [super init]) {
+        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+        config.HTTPAdditionalHeaders = @{TGHeaderApiVersionName:@(TGApiClientVersion),
+                                         TGHeaderApiKeyName:TGClientId};
+        _session = [NSURLSession sessionWithConfiguration:config];
+    }
+    return self;
+}
+
 
 
 - (void)fetchMoviesForURLString:(NSString *)urlString
                     withSuccess:(void (^)(NSArray * jsonArray))success
                         failure:(void (^)(NSError *error))failure {
     NSURL *url = [NSURL URLWithString:urlString];
-    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
-    config.HTTPAdditionalHeaders = @{TGHeaderApiVersionName:@(TGApiClientVersion),
-                                     TGHeaderApiKeyName:TGClientId};
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:config];
-    self.dataTask = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    self.dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (data) {
             NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             if (jsonArray) {
@@ -38,11 +46,14 @@
             //handle error
         }
     }];
+    
     [self.dataTask resume];
+    NSLog(@"request sent");
 }
 
 - (void)fetchImageFromURLString:(NSString *)urlString onDidLoad:(void (^)(UIImage *image))onImageDidLoad {
     NSURL *URL = [NSURL URLWithString:urlString];
+    NSLog(@"%@", urlString);
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDownloadTask *task = [session downloadTaskWithURL:URL completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSData *imageData = [NSData dataWithContentsOfURL:location];
@@ -50,6 +61,18 @@
         onImageDidLoad(image);
     }];
     [task resume];
+}
+
+- (void)cancelLoadingWithCompletion:(void (^)())completionBlock {
+    [self.session getTasksWithCompletionHandler:^(NSArray<NSURLSessionDataTask *> * _Nonnull dataTasks, NSArray<NSURLSessionUploadTask *> * _Nonnull uploadTasks, NSArray<NSURLSessionDownloadTask *> * _Nonnull downloadTasks) {
+        for (NSURLSessionDataTask *dataTask in dataTasks) {
+            [dataTask cancel];
+            NSLog(@"task cancelled");
+        }
+        if (completionBlock) {
+            completionBlock ();
+        }
+    }];
 }
 
 

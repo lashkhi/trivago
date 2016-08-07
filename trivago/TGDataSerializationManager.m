@@ -35,8 +35,11 @@
     TGMovie *movie = [TGMovie new];
     movie.title = movieDict[TGMovieTitleKey];
     movie.year =[NSString stringWithFormat:@"%@", movieDict[TGMovieYearKey]];
-    movie.overview = movieDict[TGMovieOverviewKey];
-    movie.imageURL = movieDict[TGMovieImageDictionaryKey][TGMovieLogoKey][TGMovieImageDictionaryFullKey];
+    movie.overview = [movieDict[TGMovieOverviewKey] isKindOfClass:[NSNull class]] ? @"No overview" : movieDict[TGMovieOverviewKey];
+    NSString *imageURLString = movieDict[TGMovieImageDictionaryKey][TGMovieLogoKey][TGMovieImageDictionaryFullKey];
+    if (![imageURLString isKindOfClass:[NSNull class]]) {
+        movie.imageURL = movieDict[TGMovieImageDictionaryKey][TGMovieLogoKey][TGMovieImageDictionaryFullKey];
+    }
     movie.movieId = movieDict[TGMovieIdDictionaryIdsKey][TGMovieIdDictionaryIMDBKey];
     return movie;
 }
