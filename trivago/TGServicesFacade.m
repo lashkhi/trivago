@@ -35,14 +35,12 @@
     NSString *urlString;
     if (searchText) {
         urlString = [NSString stringWithFormat:@"%@%@%@&page=%ld&limit=%ld", TGAPIURL, TGSearchMoviesURL, searchText, (long)page, limit];
-        [self.networkManager cancelLoadingWithCompletion:^{
-            [self sendRequestForURL:urlString forPage:page limit:limit searchText:searchText success:^(NSArray *movies) {
-                if (success) {
-                    success(movies);
-                }
-            } failure:^(NSError *error) {
+        [self sendRequestForURL:urlString forPage:page limit:limit searchText:searchText success:^(NSArray *movies) {
+            if (success) {
+                success(movies);
+            }
+        } failure:^(NSError *error) {
                 //
-            }];
         }];
     } else {
         urlString = [NSString stringWithFormat:@"%@%@&page=%ld&limit=%ld", TGAPIURL, TGMoviesURL, (long)page, limit];

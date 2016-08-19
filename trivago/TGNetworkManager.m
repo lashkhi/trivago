@@ -63,17 +63,6 @@
     [task resume];
 }
 
-- (void)cancelLoadingWithCompletion:(void (^)())completionBlock {
-    [self.session getTasksWithCompletionHandler:^(NSArray<NSURLSessionDataTask *> * _Nonnull dataTasks, NSArray<NSURLSessionUploadTask *> * _Nonnull uploadTasks, NSArray<NSURLSessionDownloadTask *> * _Nonnull downloadTasks) {
-        for (NSURLSessionDataTask *dataTask in dataTasks) {
-            [dataTask cancel];
-            NSLog(@"task cancelled");
-        }
-        if (completionBlock) {
-            completionBlock ();
-        }
-    }];
-}
 
 
 @end

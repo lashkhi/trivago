@@ -16,6 +16,4 @@
 
 - (void)fetchImageFromURLString:(NSString *)urlString onDidLoad:(void (^)(UIImage *image))onImageDidLoad;
 
-- (void)cancelLoadingWithCompletion:(void (^)())completionBlock;
-
 @end
